@@ -28,6 +28,12 @@ function moveFile(src, dst) {
     return;
   }
 
+  if (!fs.existsSync(dstFolder)) {
+    console.error('destination path must exist');
+
+    return;
+  }
+
   // if dst has a /, must exist and be a directory
   if (dst[dst.length - 1] === '/' || dst[dst.length - 1] === '\\') {
     // dst its a folder and must exist
@@ -56,13 +62,6 @@ function moveFile(src, dst) {
         return;
       }
     }
-  }
-  console.log(dstFolder);
-
-  if (!fs.existsSync(dstFolder)) {
-    console.error('destination path must exist');
-
-    return;
   }
 
   fs.renameSync(src, dstFixed);
