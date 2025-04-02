@@ -11,6 +11,8 @@ function moveFile(src, dst) {
   const srcFileName = path.basename(src);
   const dstFolder = path.dirname(dst);
 
+console.log(dstFolder);
+
   if (src === undefined || dst === undefined) {
     console.error('error if only one argument is provided');
 
@@ -49,7 +51,6 @@ function moveFile(src, dst) {
       }
 
       dstFixed = path.join(dstFixed, srcFileName);
-      console.log(dstFixed);
     }
   } else {
     // if dst exists mus be a directory
